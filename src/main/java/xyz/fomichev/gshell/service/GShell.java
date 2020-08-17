@@ -22,9 +22,11 @@ public class GShell {
 
     @PostConstruct
     void init() {
-        for (String beanName : context.getBeanDefinitionNames()) {
-            Object bean = context.getBean(beanName);
-            this.scriptEngineManager.put(beanName, bean);
+        String[] allBeans = context.getBeanDefinitionNames();
+        for (String beanName : allBeans) {
+            if (context.isSingleton(beanName)) {
+                scriptEngineManager.put(beanName, context.getBean(beanName));
+            }
         }
     }
 
