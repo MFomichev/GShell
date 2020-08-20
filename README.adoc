@@ -1,0 +1,5 @@
+=== GShell
+
+GShell is a tool for execute Groovy Script using all classes which are presented in classpath and Spring (singleton) beans.
+
+It is based on JSR-223.
